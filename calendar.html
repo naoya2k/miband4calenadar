@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+<title>Calendar</title>
+<script src="calendar.js"></script>
+</head>
+
+<body onload="drawCalendar();">
+<form name="form">
+<INPUT type="button" value="prev" onclick="prevpage(0);">　　　
+<INPUT type="button" value="next" onclick="nextpage(0);">
+</form>
+
+<p>
+<img id="calendar_img" src="" width="120" height="240"/>
+</p>
+<canvas style="display:none" id="calendar" width="120" height="240" />
+</body></html>
