@@ -5,16 +5,57 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 <title>Calendar</title>
 <script src="calendar.js"></script>
+<style>
+  body {
+      color: #ffffff;
+      background-color: #333333;
+  }
+  input {
+      font-size:16pt; margin:2px;
+  }
+#rectround {
+  width:80pt;
+}
+  .text, select {
+      font-size:16pt; width:120px;
+  }
+  textarea {
+      font-size:16pt; width:240px;
+  }
+  #calendar_img {
+      width:240px;
+      height:480px;
+      image-rendering: -moz-crisp-edges;          /* Firefox (Gecko) */
+      image-rendering:pixelated;
+  }
+  #calendar {
+      display:none;
+  }
+</style>
+
 </head>
 
-<body onload="drawCalendar();">
-<form name="form">
-<INPUT type="button" value="prev" onclick="prevpage(0);">　　　
-<INPUT type="button" value="next" onclick="nextpage(0);">
-</form>
-
+<body onload="checkHoliday(); drawCalendar();">
+<INPUT type="button" value="prev" onclick="prevpage(0);"/>
+<INPUT type="button" value="next" onclick="nextpage(0);"/>
+<INPUT type="button" value="redraw" onclick="drawCalendar();"/>
+<br><br>
+Holiday List:<br>
+<textarea type="text" id="holidayText" value="holiday" onchange="drawCalendar();"></textarea><br>
+<INPUT type="checkbox" id="autoHoliday" checked="checked" onclick="checkHoliday();">Automatically Set Japanese Holiday</input>
 <p>
-<img id="calendar_img" src="" width="120" height="240"/>
+<img id="calendar_img" src="" />
 </p>
-<canvas style="display:none" id="calendar" width="120" height="240" />
+<p>
+Rect Radius: <INPUT type="number" id="rectround" value="4" onChange="drawCalendar()"/><br>
+Rect Stroke: <SELECT id="rectstroke" onChange="drawCalendar()">
+<option value="0">No stroke</option>
+<option value="1">stroke</option>
+</SELECT>
+</p>
+
+
+<canvas id="calendar" width="120" height="240">
+
+
 </body></html>
